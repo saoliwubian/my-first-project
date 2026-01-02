@@ -1,0 +1,98 @@
+# This file will be read by resetprop
+# 示例: 更改 dpi
+# ro.sf.lcd_density=360
+# vendor.display.lcd_density=360
+# 此文件映射 /system/build.prop
+
+
+
+#游戏三倍速
+debug.game.video.support=true
+debug.game.video.speed=true
+#动画4线程
+persist.sys.miui_animator_sched.sched_threads=4
+#关闭AI应用预加载
+persist.sys.prestart.proc=false
+persist.sys.preload.enable=false
+#游戏三倍速
+debug.game.video.support=true
+debug.game.video.speed=true
+#开启超高清HDR（高动态范围）内容显示。
+persist.sys.support_ultra_hdr=true
+#息屏 1 Hz 刷新率
+ro.vendor.display.primary_idle_refresh_rate=60,1:10
+ro.vendor.mi_sf.aod_mode_ddic_refresh_rate=1
+#动画4线程
+persist.sys.miui_animator_sched.sched_threads=4
+#高精确位置服务
+persist.vendor.gnss.hpLocSetUI=1
+#开启dm映射
+persist.miui.extm.dm_opt.enable=true
+#防闪烁模式
+debug.secret_dc_backlight.enable=true
+persist.vendor.dc_backlight.enable=true
+persist.vendor.fod.modified.dc_status=true
+
+#桌面过渡动画
+persist.sys.hyper_transition_v=2
+persist.sys.hyper_transition=true
+#桌面回调动画
+ro.miui.shell_anim_enable_fcb=true
+
+
+
+# Present模式设置（3=Immediate无垂直同步，低延迟但可能撕裂）
+debug.vulkan.present_mode=3
+
+# 1. 全局Vulkan核心启用（系统/厂商/UI/合成器基础）
+persist.sys.vulkan.enabled=1
+persist.vendor.vulkan.enabled=1
+debug.egl.vulkan.enabled=1
+debug.renderengine.vulkan=true
+debug.renderengine.backend=vk
+
+# 2. 渲染引擎后端设置为gl
+ro.hwui.use_vulkan=false
+debug.hwui.renderer=hwui
+ro.hwui.vulkan.memory_optimization=0
+
+# 3. 硬件合成器（HWC）与显示性能优化
+debug.sf.hwcomposer=1
+debug.sf.enable_hwc_vulkan=1
+debug.sf.max_hw_queued_frames=2
+debug.gralloc.force_hwc=1
+debug.egl.hw=1
+persist.sys.force_sw_gles=0
+
+# 4. 媒体解码与内存性能配置
+debug.stagefright.renderengine.backend=threaded
+debug.stagefright.vulkan.secure_decode=1
+debug.stagefright.vulkan.decode=1
+debug.vulkan.memory.preallocate=1
+debug.egl.mem.high_performance=1
+debug.vulkan.memory.pool.size=512
+debug.vulkan.memory.limit=2048
+
+# 5. 兼容性与补充功能优化
+debug.vulkan.force_compatibility=0
+debug.hwui.vulkan.skip_compatibility_check=1
+debug.sf.vulkan.disable_compatibility=1
+debug.vulkan.validation.layers=0
+debug.vulkan.log.level=1
+debug.vulkan.runtime_allocator.enabled=1
+debug.vulkan.force_protected=0
+debug.vulkan.disable_ubwc=0
+debug.vulkan.allow_low_power_mode=1
+debug.sf.force_hwc_procs=1
+debug.sf.vsync.wait=1
+ro.zygote.disable_gl_preload=0
+
+# 6. 游戏优先
+debug.vulkan.game_mode=1
+debug.vulkan.async_compute=1
+
+# 仅多GPU设备启用
+# ro.hwui.vulkan.multi_device=1
+
+# 驱动与兼容性基础配置
+ro.hardware.vulkan=turnip
